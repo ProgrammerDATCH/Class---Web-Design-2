@@ -81,66 +81,66 @@
 </head>
 
 <body>
-    <h1>Individual Assignment #2 for Interactive Web Development</h1>
+    <h1>Individual Assignment #2 for TUYISHIME David 222008524 on Interactive Web Development</h1>
 
     <div class="section-header">ARRAYS</div>
 
     <h2>1. Create an array of 20 numbers and write a function to find the sum of all numbers</h2>
     <pre><code>
-function sumArray() {
-    const numbers = Array.from({length: 20}, (_, i) => i + 1);
-    return numbers.reduce((sum, num) => sum + num, 0);
-}
+        function sumArray() {
+            const numbers = Array.from({length: 20}, (_, i) => i + 1);
+            return numbers.reduce((sum, num) => sum + num, 0);
+        }
     </code></pre>
     <div class="output-example" id="sum-output">Click to see result</div>
     <button onclick="showArraySum()">Run Example</button>
 
     <h2>2. Write a function to find the largest number in an array of 20 numbers</h2>
     <pre><code>
-function findLargest() {
-    const numbers = Array.from({length: 20}, (_, i) => i + 1);
-    return Math.max(...numbers);
-}
+        function findLargest() {
+            const numbers = Array.from({length: 20}, (_, i) => i + 1);
+            return Math.max(...numbers);
+        }
     </code></pre>
     <div class="output-example" id="largest-output">Click to see result</div>
     <button onclick="showLargest()">Run Example</button>
 
     <h2>3. Write a function to sort an array of 20 numbers in ascending order</h2>
     <pre><code>
-function sortAscending() {
-    const numbers = Array.from({length: 20}, () => Math.floor(Math.random() * 100));
-    return numbers.sort((a, b) => a - b);
-}
+        function sortAscending() {
+            const numbers = Array.from({length: 20}, () => Math.floor(Math.random() * 100));
+            return numbers.sort((a, b) => a - b);
+        }
     </code></pre>
     <div class="output-example" id="sort-output">Click to see result</div>
     <button onclick="showSorted()">Run Example</button>
 
     <h2>4. Write a function to reverse an array of 20 numbers</h2>
     <pre><code>
-function reverseArray() {
-    const numbers = Array.from({length: 20}, (_, i) => i + 1);
-    return numbers.reverse();
-}
+        function reverseArray() {
+            const numbers = Array.from({length: 20}, (_, i) => i + 1);
+            return numbers.reverse();
+        }
     </code></pre>
     <div class="output-example" id="reverse-output">Click to see result</div>
     <button onclick="showReversed()">Run Example</button>
 
     <h2>5. Write a function that takes an array of 20 numbers and returns only even numbers</h2>
     <pre><code>
-function getEvenNumbers() {
-    const numbers = Array.from({length: 20}, (_, i) => i + 1);
-    return numbers.filter(num => num % 2 === 0);
-}
+        function getEvenNumbers() {
+            const numbers = Array.from({length: 20}, (_, i) => i + 1);
+            return numbers.filter(num => num % 2 === 0);
+        }
     </code></pre>
     <div class="output-example" id="even-output">Click to see result</div>
     <button onclick="showEven()">Run Example</button>
 
     <h2>6. Write a function that takes an array of 20 numbers and returns only odd numbers</h2>
     <pre><code>
-function getOddNumbers() {
-    const numbers = Array.from({length: 20}, (_, i) => i + 1);
-    return numbers.filter(num => num % 2 !== 0);
-}
+        function getOddNumbers() {
+            const numbers = Array.from({length: 20}, (_, i) => i + 1);
+            return numbers.filter(num => num % 2 !== 0);
+        }
     </code></pre>
     <div class="output-example" id="odd-output">Click to see result</div>
     <button onclick="showOdd()">Run Example</button>
