@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Assignment #2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #3498db;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            margin: 30px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        pre {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .output-example {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Individual Assignment #2 for Interactive Web Development</h1>
+
+    <div class="section-header">ARRAYS</div>
+
+    <h2>1. Create an array of 20 numbers and write a function to find the sum of all numbers</h2>
+    <pre><code>
+function sumArray() {
+    const numbers = Array.from({length: 20}, (_, i) => i + 1);
+    return numbers.reduce((sum, num) => sum + num, 0);
+}
+    </code></pre>
+    <div class="output-example" id="sum-output">Click to see result</div>
+    <button onclick="showArraySum()">Run Example</button>
+
+    <h2>2. Write a function to find the largest number in an array of 20 numbers</h2>
+    <pre><code>
+function findLargest() {
+    const numbers = Array.from({length: 20}, (_, i) => i + 1);
+    return Math.max(...numbers);
+}
+    </code></pre>
+    <div class="output-example" id="largest-output">Click to see result</div>
+    <button onclick="showLargest()">Run Example</button>
+
+    <h2>3. Write a function to sort an array of 20 numbers in ascending order</h2>
+    <pre><code>
+function sortAscending() {
+    const numbers = Array.from({length: 20}, () => Math.floor(Math.random() * 100));
+    return numbers.sort((a, b) => a - b);
+}
+    </code></pre>
+    <div class="output-example" id="sort-output">Click to see result</div>
+    <button onclick="showSorted()">Run Example</button>
+
+    <h2>4. Write a function to reverse an array of 20 numbers</h2>
+    <pre><code>
+function reverseArray() {
+    const numbers = Array.from({length: 20}, (_, i) => i + 1);
+    return numbers.reverse();
+}
+    </code></pre>
+    <div class="output-example" id="reverse-output">Click to see result</div>
+    <button onclick="showReversed()">Run Example</button>
+
+    <h2>5. Write a function that takes an array of 20 numbers and returns only even numbers</h2>
+    <pre><code>
+function getEvenNumbers() {
+    const numbers = Array.from({length: 20}, (_, i) => i + 1);
+    return numbers.filter(num => num % 2 === 0);
+}
+    </code></pre>
+    <div class="output-example" id="even-output">Click to see result</div>
+    <button onclick="showEven()">Run Example</button>
+
+    <h2>6. Write a function that takes an array of 20 numbers and returns only odd numbers</h2>
+    <pre><code>
+function getOddNumbers() {
+    const numbers = Array.from({length: 20}, (_, i) => i + 1);
+    return numbers.filter(num => num % 2 !== 0);
+}
+    </code></pre>
+    <div class="output-example" id="odd-output">Click to see result</div>
+    <button onclick="showOdd()">Run Example</button>
+
+    <h2>7. Write a function that takes an array of 20 numbers and returns the average</h2>
+    <pre><code>
+function calculateAverage() {
+    const numbers = Array.from({length: 20}, (_, i) => i + 1);
+    return numbers.reduce((sum, num) => sum + num, 0) / numbers.length;
+}
+    </code></pre>
+    <div class="output-example" id="average-output">Click to see result</div>
+    <button onclick="showAverage()">Run Example</button>
+
+    <h2>8. Write a function to remove duplicates from an array of 20 numbers</h2>
+    <pre><code>
+function removeDuplicates() {
+    const numbers = [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 13];
+    return [...new Set(numbers)];
+}
+    </code></pre>
+    <div class="output-example" id="duplicates-output">Click to see result</div>
+    <button onclick="showDuplicates()">Run Example</button>
+
+    <h2>9. Write a function that takes an array of 20 numbers and returns the median value</h2>
+    <pre><code>
+function findMedian() {
+    const numbers = Array.from({length: 20}, (_, i) => i + 1);
+    const sorted = numbers.sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 === 0 
+        ? (sorted[mid - 1] + sorted[mid]) / 2
+        : sorted[mid];
+}
+    </code></pre>
+    <div class="output-example" id="median-output">Click to see result</div>
+    <button onclick="showMedian()">Run Example</button>
+
+    <h2>10. Write a function to multiply all elements in an array of 20 numbers by 2</h2>
+    <pre><code>
+function multiplyByTwo() {
+    const numbers = Array.from({length: 20}, (_, i) => i + 1);
+    return numbers.map(num => num * 2);
+}
+    </code></pre>
+    <div class="output-example" id="multiply-output">Click to see result</div>
+    <button onclick="showMultiply()">Run Example</button>
+
+    <div class="section-header">ARRAYS OF STRINGS</div>
+
+    <h2>11. Create an array of 20 names and write a function to print each name</h2>
+    <pre><code>
+function printNames() {
+    const names = [
+        "John", "Jane", "Mike", "Sarah", "David",
+        "Emma", "Tom", "Lisa", "Alex", "Anna",
+        "Peter", "Mary", "James", "Kate", "Paul",
+        "Linda", "Chris", "Sophie", "Daniel", "Emily"
+    ];
+    names.forEach(name => console.log(name));
+}
+    </code></pre>
+    <div class="output-example" id="names-output">Click to see result</div>
+    <button onclick="showNames()">Run Example</button>
+
+    <h2>12. Write a function to sort an array of 20 names alphabetically</h2>
+    <pre><code>
+function sortNames() {
+    const names = [
+        "John", "Jane", "Mike", "Sarah", "David",
+        "Emma", "Tom", "Lisa", "Alex", "Anna",
+        "Peter", "Mary", "James", "Kate", "Paul",
+        "Linda", "Chris", "Sophie", "Daniel", "Emily"
+    ];
+    return names.sort();
+}
+    </code></pre>
+    <div class="output-example" id="sorted-names-output">Click to see result</div>
+    <button onclick="showSortedNames()">Run Example</button>
+
+    <h2>13. Write a function that checks if a specific name exists in an array of 20 names</h2>
+    <pre><code>
+function checkName(searchName) {
+    const names = [
+        "John", "Jane", "Mike", "Sarah", "David",
+        "Emma", "Tom", "Lisa", "Alex", "Anna",
+        "Peter", "Mary", "James", "Kate", "Paul",
+        "Linda", "Chris", "Sophie", "Daniel", "Emily"
+    ];
+    return names.includes(searchName);
+}
+    </code></pre>
+    <div class="output-example">
+        <input type="text" id="name-search" placeholder="Enter name to search">
+        <button onclick="searchName()">Search</button>
+        <div id="search-result"></div>
+    </div>
+
+    <h2>14. Write a function to find the longest name in an array of 20 names</h2>
+    <pre><code>
+function findLongestName() {
+    const names = [
+        "John", "Jane", "Mike", "Sarah", "David",
+        "Emma", "Tom", "Lisa", "Alex", "Anna",
+        "Peter", "Mary", "James", "Kate", "Paul",
+        "Linda", "Chris", "Sophie", "Daniel", "Emily"
+    ];
+    return names.reduce((longest, current) => 
+        current.length > longest.length ? current : longest
+    );
+}
+    </code></pre>
+    <div class="output-example" id="longest-name-output">Click to see result</div>
+    <button onclick="showLongestName()">Run Example</button>
+
+    <h2>15. Write a function to find names that start with a specific letter</h2>
+    <pre><code>
+function findNamesByLetter(letter) {
+    const names = [
+        "John", "Jane", "Mike", "Sarah", "David",
+        "Emma", "Tom", "Lisa", "Alex", "Anna",
+        "Peter", "Mary", "James", "Kate", "Paul",
+        "Linda", "Chris", "Sophie", "Daniel", "Emily"
+    ];
+    return names.filter(name => 
+        name.toLowerCase().startsWith(letter.toLowerCase())
+    );
+}
+    </code></pre>
+    <div class="output-example">
+        <input type="text" id="letter-search" placeholder="Enter letter" maxlength="1">
+        <button onclick="searchByLetter()">Search</button>
+        <div id="letter-result"></div>
+    </div>
+
+    <h2>16. Write a function to convert all names to uppercase in an array of 20 names</h2>
+    <pre><code>
+function convertToUppercase() {
+    const names = [
+        "John", "Jane", "Mike", "Sarah", "David",
+        "Emma", "Tom", "Lisa", "Alex", "Anna",
+        "Peter", "Mary", "James", "Kate", "Paul",
+        "Linda", "Chris", "Sophie", "Daniel", "Emily"
+    ];
+    return names.map(name => name.toUpperCase());
+}
+    </code></pre>
+    <div class="output-example" id="uppercase-output">Click to see result</div>
+    <button onclick="showUppercase()">Run Example</button>
+
+    <h2>17. Write a function to remove a specific name from an array of 20 names</h2>
+    <pre><code>
+function removeName(nameToRemove) {
+    const names = [
+        "John", "Jane", "Mike", "Sarah", "David",
+        "Emma", "Tom", "Lisa", "Alex", "Anna",
+        "Peter", "Mary", "James", "Kate", "Paul",
+        "Linda", "Chris", "Sophie", "Daniel", "Emily"
+    ];
+    return names.filter(name => name !== nameToRemove);
+}
+    </code></pre>
+    <div class="output-example">
+        <input type="text" id="name-remove" placeholder="Enter name to remove">
+        <button onclick="removeNameDemo()">Remove</button>
+        <div id="remove-result"></div>
+    </div>
+
+    <h2>18. Write a function to count how many names contain the letter "a"</h2>
+    <pre><code>
+function countNamesWithA() {
+    const names = [
+        "John", "Jane", "Mike", "Sarah", "David",
+        "Emma", "Tom", "Lisa", "Alex", "Anna",
+        "Peter", "Mary", "James", "Kate", "Paul",
+        "Linda", "Chris", "Sophie", "Daniel", "Emily"
+    ];
+    return names.filter(name => 
+        name.toLowerCase().includes('a')
+    ).length;
+}
+    </code></pre>
+    <div class="output-example" id="count-a-output">Click to see result</div>
+    <button onclick="showCountA()">Run Example</button>
+
+    <h2>19. Write a function to concatenate all names into a single string, separated by commas</h2>
+    <pre><code>
+function concatenateNames() {
+    const names = [
+        "John", "Jane", "Mike", "Sarah", "David",
+        "Emma", "Tom", "Lisa", "Alex", "Anna",
+        "Peter", "Mary", "James", "Kate", "Paul",
+        "Linda", "Chris", "Sophie", "Daniel", "Emily"
+    ];
+    return names.join(', ');
+}
+    </code></pre>
+    <div class="output-example" id="concatenate-output">Click to see result</div>
+    <button onclick="showConcatenated()">Run Example</button>
+
+    <h2>20. Write a function to reverse the order of an array of 20 names</h2>
+    <pre><code>
+function reverseNames() {
+    const names = [
+        "John", "Jane", "Mike", "Sarah", "David",
+        "Emma", "Tom", "Lisa", "Alex", "Anna",
+        "Peter", "Mary", "James", "Kate", "Paul",
+        "Linda", "Chris", "Sophie", "Daniel", "Emily"
+    ];
+    return names.reverse();
+}
+    </code></pre>
+    <div class="output-example" id="reverse-names-output">Click to see result</div>
+    <button onclick="showReversedNames()">Run Example</button>
+
+
+
+
+    <div class=" section-header">OBJECTS</div>
+
+    <h2>21. Create a JavaScript object that represents a person</h2>
+    <pre><code>
+const person = {
+    name: "John Doe",
+    age: 30,
+    occupation: "Software Developer"
+};
+    </code></pre>
+    <div class="output-example" id="person-output">Click to see object</div>
+    <button onclick="showPerson()">Show Person</button>
+
+    <h2>22. Write a function that takes a person object and returns a formatted string</h2>
+    <pre><code>
+function formatPerson(person) {
+    return `Name: ${person.name}, Age: ${person.age}, Occupation: ${person.occupation}`;
+}
+
+// Example usage:
+const personInfo = formatPerson(person);
+    </code></pre>
+    <div class="output-example" id="format-output">Click to see formatted string</div>
+    <button onclick="showFormatted()">Format Person</button>
+
+    <h2>23. Write a function to add a new property to an existing object</h2>
+    <pre><code>
+function addProperty(obj, key, value) {
+    obj[key] = value;
+    return obj;
+}
+
+// Example usage:
+const updatedPerson = addProperty(person, 'location', 'New York');
+    </code></pre>
+    <div class="output-example" id="add-prop-output">Click to see result</div>
+    <button onclick="showAddProperty()">Add Property</button>
+
+    <h2>24. Write a function to remove a property from an existing object</h2>
+    <pre><code>
+function removeProperty(obj, key) {
+    delete obj[key];
+    return obj;
+}
+
+// Example usage:
+const modifiedPerson = removeProperty(person, 'age');
+    </code></pre>
+    <div class="output-example" id="remove-prop-output">Click to see result</div>
+    <button onclick="showRemoveProperty()">Remove Property</button>
+
+    <h2>25. Write a function to list all properties and values of a JavaScript object</h2>
+    <pre><code>
+function listProperties(obj) {
+    let result = [];
+    for (let prop in obj) {
+        result.push(`${prop}: ${obj[prop]}`);
+    }
+    return result.join('\n');
+}
+    </code></pre>
+    <div class="output-example" id="list-props-output">Click to see properties</div>
+    <button onclick="showProperties()">List Properties</button>
+
+    <h2>26. Write a function to merge two objects into one</h2>
+    <pre><code>
+function mergeObjects(obj1, obj2) {
+    return { ...obj1, ...obj2 };
+}
+
+// Example usage:
+const person1 = { name: "John", age: 30 };
+const person2 = { occupation: "Developer", location: "New York" };
+const merged = mergeObjects(person1, person2);
+    </code></pre>
+    <div class="output-example" id="merge-output">Click to see merged object</div>
+    <button onclick="showMerged()">Merge Objects</button>
+
+    <h2>27. Write a function to check if a property exists in an object</h2>
+    <pre><code>
+function hasProperty(obj, propertyName) {
+    return obj.hasOwnProperty(propertyName);
+}
+
+// Example usage:
+const hasAge = hasProperty(person, 'age'); // returns true
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="prop-check" placeholder="Enter property name">
+        <button onclick="checkProperty()">Check Property</button>
+        <div id="prop-result" class="output-example"></div>
+    </div>
+
+    <h2>28. Write a function to clone an object</h2>
+    <pre><code>
+function cloneObject(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
+
+// Example usage:
+const clonedPerson = cloneObject(person);
+    </code></pre>
+    <div class="output-example" id="clone-output">Click to see cloned object</div>
+    <button onclick="showCloned()">Clone Object</button>
+
+    <h2>29. Write a function to loop through an array of objects and print a specific property</h2>
+    <pre><code>
+function printProperty(arrayOfObjects, propertyName) {
+    return arrayOfObjects.map(obj => obj[propertyName]).join(', ');
+}
+
+// Example usage:
+const people = [
+    { name: "John", age: 30 },
+    { name: "Jane", age: 25 },
+    { name: "Bob", age: 35 }
+];
+const names = printProperty(people, 'name');
+    </code></pre>
+    <div class="output-example" id="print-prop-output">Click to see properties</div>
+    <button onclick="showPrintProperty()">Print Properties</button>
+
+    <h2>30. Write a function that updates a specific property of an object</h2>
+    <pre><code>
+function updateProperty(obj, propertyName, newValue) {
+    if (obj.hasOwnProperty(propertyName)) {
+        obj[propertyName] = newValue;
+    }
+    return obj;
+}
+
+// Example usage:
+const updatedPerson = updateProperty(person, 'age', 31);
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="update-prop-name" placeholder="Property name">
+        <input type="text" id="update-prop-value" placeholder="New value">
+        <button onclick="updatePropertyDemo()">Update Property</button>
+        <div id="update-result" class="output-example"></div>
+    </div>
+
+    <div class="section-header">STRINGS</div>
+
+    <h2>31. Write a function that takes a string and reverses it</h2>
+    <pre><code>
+function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="string-input" placeholder="Enter text to reverse">
+        <button onclick="reverseStringDemo()">Reverse</button>
+        <div id="reverse-result" class="output-example"></div>
+    </div>
+
+    <h2>32. Write a function to count the number of vowels in a string</h2>
+    <pre><code>
+function countVowels(str) {
+    return (str.match(/[aeiou]/gi) || []).length;
+}
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="vowel-input" placeholder="Enter text">
+        <button onclick="countVowelsDemo()">Count Vowels</button>
+        <div id="vowel-result" class="output-example"></div>
+    </div>
+
+    <h2>33. Write a function to convert a string to uppercase without using built-in methods</h2>
+    <pre><code>
+function customToUpper(str) {
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        let charCode = str.charCodeAt(i);
+        if (charCode >= 97 && charCode <= 122) {
+            result += String.fromCharCode(charCode - 32);
+        } else {
+            result += str[i];
+        }
+    }
+    return result;
+}
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="upper-input" placeholder="Enter text">
+        <button onclick="toUpperDemo()">Convert to Uppercase</button>
+        <div id="upper-result" class="output-example"></div>
+    </div>
+
+    <h2>34. Write a function to find the length of a string without using .length</h2>
+    <pre><code>
+function customLength(str) {
+    let count = 0;
+    for (let char of str) {
+        count++;
+    }
+    return count;
+}
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="length-input" placeholder="Enter text">
+        <button onclick="getLengthDemo()">Get Length</button>
+        <div id="length-result" class="output-example"></div>
+    </div>
+
+    <h2>35. Write a function to replace all spaces with hyphens in a string</h2>
+    <pre><code>
+function replaceSpaces(str) {
+    return str.replace(/ /g, '-');
+}
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="space-input" placeholder="Enter text with spaces">
+        <button onclick="replaceSpacesDemo()">Replace Spaces</button>
+        <div id="space-result" class="output-example"></div>
+    </div>
+
+
+    <h2>36. Write a function to extract the first 10 characters from a string</h2>
+    <pre><code>
+function extractFirst10(str) {
+    return str.substring(0, 10);
+}
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="extract-input" placeholder="Enter text longer than 10 characters">
+        <button onclick="extractDemo()">Extract First 10</button>
+        <div id="extract-result" class="output-example"></div>
+    </div>
+
+    <h2>37. Write a function to find and replace a word in a string</h2>
+    <pre><code>
+function findAndReplace(str, find, replace) {
+    return str.replace(new RegExp(find, 'g'), replace);
+}
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="text-input" placeholder="Enter text">
+        <input type="text" id="find-input" placeholder="Word to find">
+        <input type="text" id="replace-input" placeholder="Replace with">
+        <button onclick="replaceWordDemo()">Replace Word</button>
+        <div id="replace-result" class="output-example"></div>
+    </div>
+
+    <h2>38. Write a function to split a string into an array of words</h2>
+    <pre><code>
+function splitIntoWords(str) {
+    return str.split(' ');
+}
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="split-input" placeholder="Enter a sentence">
+        <button onclick="splitDemo()">Split into Words</button>
+        <div id="split-result" class="output-example"></div>
+    </div>
+
+    <h2>39. Write a function to remove all numbers from a string</h2>
+    <pre><code>
+function removeNumbers(str) {
+    return str.replace(/[0-9]/g, '');
+}
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="numbers-input" placeholder="Enter text with numbers">
+        <button onclick="removeNumbersDemo()">Remove Numbers</button>
+        <div id="numbers-result" class="output-example"></div>
+    </div>
+
+    <h2>40. Write a function to insert another string at position 7</h2>
+    <pre><code>
+function insertString(originalStr, strToInsert) {
+    return originalStr.slice(0, 7) + strToInsert + originalStr.slice(7);
+}
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="original-input" placeholder="Original string">
+        <input type="text" id="insert-input" placeholder="String to insert">
+        <button onclick="insertStringDemo()">Insert String</button>
+        <div id="insert-result" class="output-example"></div>
+    </div>
+
+    <div class="section-header">HTML ELEMENTS AND DOM MANIPULATION</div>
+
+    <h2>41. Write a JavaScript function that changes the background color of a webpage</h2>
+    <pre><code>
+function changeBackground() {
+    const colors = ['#ffebee', '#e3f2fd', '#f1f8e9', '#fff3e0', '#f3e5f5'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = randomColor;
+}
+    </code></pre>
+    <button onclick="changeBackground()">Change Background Color</button>
+
+    <h2>42. Write a JavaScript function to hide an HTML element</h2>
+    <pre><code>
+function toggleVisibility(elementId) {
+    const element = document.getElementById(elementId);
+    element.style.display = element.style.display === 'none' ? 'block' : 'none';
+}
+    </code></pre>
+    <div class="demo-box" id="toggle-demo">
+        <p id="toggle-text">This text will be hidden/shown</p>
+        <button onclick="toggleVisibility('toggle-text')">Toggle Visibility</button>
+    </div>
+
+    <h2>43. Write a JavaScript function to create a new paragraph element</h2>
+    <pre><code>
+function createParagraph() {
+    const p = document.createElement('p');
+    p.textContent = 'This is a dynamically created paragraph!';
+    document.getElementById('paragraph-container').appendChild(p);
+}
+    </code></pre>
+    <div class="demo-box" id="paragraph-container">
+        <button onclick="createParagraph()">Add Paragraph</button>
+    </div>
+
+    <h2>44. Write a JavaScript function to remove all list items</h2>
+    <pre><code>
+function removeListItems() {
+    const list = document.getElementById('demo-list');
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
+}
+    </code></pre>
+    <div class="demo-box">
+        <ul id="demo-list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+        <button onclick="removeListItems()">Remove All Items</button>
+    </div>
+
+    <h2>45. Write a JavaScript function to change the text content of a specific HTML element</h2>
+    <pre><code>
+function changeText(elementId, newText) {
+    document.getElementById(elementId).textContent = newText;
+}
+    </code></pre>
+    <div class="demo-box">
+        <p id="change-text">Original Text</p>
+        <button onclick="changeText('change-text', 'Text has been changed!')">Change Text</button>
+    </div>
+
+    <h2>46. Write a JavaScript function to toggle a CSS class on an HTML element</h2>
+    <pre><code>
+function toggleClass(elementId, className) {
+    document.getElementById(elementId).classList.toggle(className);
+}
+    </code></pre>
+    <style>
+        .highlight {
+            background-color: yellow;
+            padding: 10px;
+            transition: all 0.3s;
+        }
+    </style>
+    <div class="demo-box">
+        <p id="toggle-class">Click the button to toggle highlighting</p>
+        <button onclick="toggleClass('toggle-class', 'highlight')">Toggle Highlight</button>
+    </div>
+
+    <h2>47. Write a JavaScript function to count the number of divs on a webpage</h2>
+    <pre><code>
+function countDivs() {
+    const divCount = document.getElementsByTagName('div').length;
+    document.getElementById('div-count').textContent = 
+        `Number of divs on this page: ${divCount}`;
+}
+    </code></pre>
+    <div class="demo-box">
+        <button onclick="countDivs()">Count Divs</button>
+        <p id="div-count"></p>
+    </div>
+
+    <h2>48. Write a JavaScript function to get and display input field value</h2>
+    <pre><code>
+function displayInputValue() {
+    const value = document.getElementById('input-demo').value;
+    document.getElementById('input-display').textContent = value;
+}
+    </code></pre>
+    <div class="demo-box">
+        <input type="text" id="input-demo" placeholder="Type something">
+        <button onclick="displayInputValue()">Display Value</button>
+        <p id="input-display"></p>
+    </div>
+
+    <h2>49. Write a JavaScript function to create a 3x3 table with numbers</h2>
+    <pre><code>
+function createTable() {
+    const table = document.createElement('table');
+    let counter = 1;
+    
+    for (let i = 0; i < 3; i++) {
+        const row = table.insertRow();
+        for (let j = 0; j < 3; j++) {
+            const cell = row.insertCell();
+            cell.textContent = counter++;
+        }
+    }
+    
+    const container = document.getElementById('table-container');
+    container.innerHTML = '';
+    container.appendChild(table);
+}
+    </code></pre>
+    <div class="demo-box" id="table-container">
+        <button onclick="createTable()">Create Table</button>
+    </div>
+
+    <h2>50. Write a JavaScript function to validate a form</h2>
+    <pre><code>
+function validateForm() {
+    const name = document.getElementById('form-name').value;
+    const email = document.getElementById('form-email').value;
+    const password = document.getElementById('form-password').value;
+    
+    if (!name || !email || !password) {
+        alert('All fields must be filled out');
+        return false;
+    }
+    
+    if (!email.includes('@')) {
+        alert('Please enter a valid email');
+        return false;
+    }
+    
+    alert('Form validated successfully!');
+    return true;
+}
+    </code></pre>
+    <div class="form-demo">
+        <form id="demo-form" onsubmit="return validateForm()">
+            <input type="text" id="form-name" placeholder="Name"><br>
+            <input type="email" id="form-email" placeholder="Email"><br>
+            <input type="password" id="form-password" placeholder="Password"><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+
+
+
+    <script>
+        // Array Functions (1-10)
+        function showArraySum() {
+            const sum = Array.from({ length: 20 }, (_, i) => i + 1)
+                .reduce((sum, num) => sum + num, 0);
+            document.getElementById('sum-output').textContent = `Sum: ${sum}`;
+        }
+
+        function showLargest() {
+            const numbers = Array.from({ length: 20 }, (_, i) => i + 1);
+            document.getElementById('largest-output').textContent =
+                `Largest number: ${Math.max(...numbers)}`;
+        }
+
+        function showSorted() {
+            const numbers = Array.from({ length: 20 }, () => Math.floor(Math.random() * 100));
+            const sorted = numbers.sort((a, b) => a - b);
+            document.getElementById('sort-output').textContent =
+                `Sorted array: ${sorted.join(', ')}`;
+        }
+
+        function showReversed() {
+            const numbers = Array.from({ length: 20 }, (_, i) => i + 1);
+            const reversed = [...numbers].reverse();
+            document.getElementById('reverse-output').textContent =
+                `Reversed array: ${reversed.join(', ')}`;
+        }
+
+        function showEven() {
+            const numbers = Array.from({ length: 20 }, (_, i) => i + 1);
+            const even = numbers.filter(num => num % 2 === 0);
+            document.getElementById('even-output').textContent =
+                `Even numbers: ${even.join(', ')}`;
+        }
+
+        function showOdd() {
+            const numbers = Array.from({ length: 20 }, (_, i) => i + 1);
+            const odd = numbers.filter(num => num % 2 !== 0);
+            document.getElementById('odd-output').textContent =
+                `Odd numbers: ${odd.join(', ')}`;
+        }
+
+        function showAverage() {
+            const numbers = Array.from({ length: 20 }, (_, i) => i + 1);
+            const average = numbers.reduce((sum, num) => sum + num, 0) / numbers.length;
+            document.getElementById('average-output').textContent =
+                `Average: ${average}`;
+        }
+
+        function showDuplicates() {
+            const numbers = [1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 12, 12, 13, 13];
+            const unique = [...new Set(numbers)];
+            document.getElementById('duplicates-output').textContent =
+                `Array without duplicates: ${unique.join(', ')}`;
+        }
+
+        function showMedian() {
+            const numbers = Array.from({ length: 20 }, (_, i) => i + 1);
+            const sorted = [...numbers].sort((a, b) => a - b);
+            const mid = Math.floor(sorted.length / 2);
+            const median = sorted.length % 2 === 0
+                ? (sorted[mid - 1] + sorted[mid]) / 2
+                : sorted[mid];
+            document.getElementById('median-output').textContent =
+                `Median: ${median}`;
+        }
+
+        function showMultiply() {
+            const numbers = Array.from({ length: 20 }, (_, i) => i + 1);
+            const multiplied = numbers.map(num => num * 2);
+            document.getElementById('multiply-output').textContent =
+                `Multiplied by 2: ${multiplied.join(', ')}`;
+        }
+
+        // String Array Functions (11-20)
+        const names = [
+            "John", "Jane", "Mike", "Sarah", "David",
+            "Emma", "Tom", "Lisa", "Alex", "Anna",
+            "Peter", "Mary", "James", "Kate", "Paul",
+            "Linda", "Chris", "Sophie", "Daniel", "Emily"
+        ];
+
+        function showNames() {
+            document.getElementById('names-output').innerHTML =
+                names.join('<br>');
+        }
+
+        function showSortedNames() {
+            const sorted = [...names].sort();
+            document.getElementById('sorted-names-output').innerHTML =
+                sorted.join('<br>');
+        }
+
+        function searchName() {
+            const searchName = document.getElementById('name-search').value;
+            const result = names.includes(searchName);
+            document.getElementById('search-result').textContent =
+                result ? `${searchName} found!` : `${searchName} not found.`;
+        }
+
+        function showLongestName() {
+            const longest = names.reduce((longest, current) =>
+                current.length > longest.length ? current : longest
+            );
+            document.getElementById('longest-name-output').textContent =
+                `Longest name: ${longest}`;
+        }
+
+        function searchByLetter() {
+            const letter = document.getElementById('letter-search').value;
+            const matches = names.filter(name =>
+                name.toLowerCase().startsWith(letter.toLowerCase())
+            );
+            document.getElementById('letter-result').innerHTML =
+                matches.length ? matches.join('<br>') : 'No matches found';
+        }
+
+        // Object Functions (21-30)
+        const person = {
+            name: "John Doe",
+            age: 30,
+            occupation: "Software Developer"
+        };
+
+        function showPerson() {
+            document.getElementById('person-output').textContent =
+                JSON.stringify(person, null, 2);
+        }
+
+        function showFormatted() {
+            document.getElementById('format-output').textContent =
+                `Name: ${person.name}, Age: ${person.age}, Occupation: ${person.occupation}`;
+        }
+
+        function showAddProperty() {
+            const updatedPerson = { ...person, location: 'New York' };
+            document.getElementById('add-prop-output').textContent =
+                JSON.stringify(updatedPerson, null, 2);
+        }
+
+        // String Manipulation Functions (31-40)
+        function reverseStringDemo() {
+            const text = document.getElementById('string-input').value;
+            document.getElementById('reverse-result').textContent =
+                text.split('').reverse().join('');
+        }
+
+        function countVowelsDemo() {
+            const text = document.getElementById('vowel-input').value;
+            const vowelCount = (text.match(/[aeiou]/gi) || []).length;
+            document.getElementById('vowel-result').textContent =
+                `Number of vowels: ${vowelCount}`;
+        }
+
+        function toUpperDemo() {
+            const text = document.getElementById('upper-input').value;
+            let result = '';
+            for (let i = 0; i < text.length; i++) {
+                let charCode = text.charCodeAt(i);
+                result += charCode >= 97 && charCode <= 122
+                    ? String.fromCharCode(charCode - 32)
+                    : text[i];
+            }
+            document.getElementById('upper-result').textContent = result;
+        }
+
+        // DOM Manipulation Functions (41-50)
+        function changeBackground() {
+            const colors = ['#ffebee', '#e3f2fd', '#f1f8e9', '#fff3e0', '#f3e5f5'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        function toggleVisibility(elementId) {
+            const element = document.getElementById(elementId);
+            element.style.display = element.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function createParagraph() {
+            const p = document.createElement('p');
+            p.textContent = 'This is a dynamically created paragraph!';
+            document.getElementById('paragraph-container').appendChild(p);
+        }
+
+        function removeListItems() {
+            const list = document.getElementById('demo-list');
+            while (list.firstChild) {
+                list.removeChild(list.firstChild);
+            }
+        }
+
+        function changeText(elementId, newText) {
+            document.getElementById(elementId).textContent = newText;
+        }
+
+        function toggleClass(elementId, className) {
+            document.getElementById(elementId).classList.toggle(className);
+        }
+
+        function countDivs() {
+            const divCount = document.getElementsByTagName('div').length;
+            document.getElementById('div-count').textContent =
+                `Number of divs on this page: ${divCount}`;
+        }
+
+        function displayInputValue() {
+            const value = document.getElementById('input-demo').value;
+            document.getElementById('input-display').textContent =
+                `Input value: ${value}`;
+        }
+
+        function createTable() {
+            const container = document.getElementById('table-container');
+            const table = document.createElement('table');
+            let counter = 1;
+
+            for (let i = 0; i < 3; i++) {
+                const row = table.insertRow();
+                for (let j = 0; j < 3; j++) {
+                    const cell = row.insertCell();
+                    cell.textContent = counter++;
+                }
+            }
+
+            container.innerHTML = '';
+            container.appendChild(table);
+        }
+
+        function validateForm() {
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const password = document.getElementById('form-password').value;
+
+            if (!name || !email || !password) {
+                alert('All fields must be filled out');
+                return false;
+            }
+
+            if (!email.includes('@')) {
+                alert('Please enter a valid email');
+                return false;
+            }
+
+            alert('Form validated successfully!');
+            return false; // Prevent actual form submission
+        }
+
+        // Additional helper functions
+        function showError(message) {
+            const formMessage = document.getElementById('form-message');
+            formMessage.className = 'error';
+            formMessage.textContent = message;
+        }
+
+        function showSuccess(message) {
+            const formMessage = document.getElementById('form-message');
+            formMessage.className = 'success';
+            formMessage.textContent = message;
+        }
+    </script>
+
+</body>
+
+</html>
